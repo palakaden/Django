@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <body>
+            <table border="3" align="center">
+                <form method="POST">
+                    {% csrf_token %}
+                    <tr>
+                        <td>num1</td>
+                        <td><input type="text" name="txt1" placeholder="Enter first number"></td>
+                    </tr>
+                    <tr>
+                        <td>num2</td>
+                        <td><input type="text" name="txt2" placeholder="Enter second number"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                        <input type="submit" name="btnsubmit" value="Submit">
+                        <input type="reset"  name="btnreset"  value="Cancel">
+                    </td>
+                    </tr>
+                </form>
+            </table>
+            Sum={{Result}}
+        </body>
+    </head>
+</html>

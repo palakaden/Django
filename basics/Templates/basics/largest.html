@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <table border="3" align="center">
+            <form method="POST">
+                {% csrf_token %}
+                <tr>
+                    <td>First number</td>
+                    <td><input type="text" name="txt1"></td>
+                </tr>
+                <tr>
+                    <td>Second number</td>
+                    <td><input type="text" name="txt2"></td>
+                </tr>
+                <tr>
+                    <td>Third number</td>
+                    <td><input type="text" name="txt3"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="save" name="txtsave">
+                        <input type="reset" value="cancel" name="txtcancel">
+                    </td>
+                </tr>
+
+            </form>
+        </table>
+        Largest={{Largest}}<br>
+        Smallest={{Smallest}}
+    </body>
+</html>
