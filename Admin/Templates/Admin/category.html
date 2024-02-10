@@ -2,32 +2,33 @@
     <body>
         <form method="POST">
             {% csrf_token %}
-            <table border="3" align="center">
+            <table border="3" align ="center">
                 <tr>
-                    <td>District</td>
-                    <td><input type="text" name="dst"></td>
+                    <td>Category</td>
+                    <td><input type="text" name="cat"></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" value="save" name="txtsave">
-                        <input type="reset" value="cancel" name="txtcancel">
+                        <input type="submit" name="txtsave" value="save">
+                        <input type="reset" name="txtcancel" value="cancel">
                     </td>
                 </tr>
-                </table>
-                <table align="center" border="3">
+            </table>
+            <table border="3" align ="center">
                 <tr>
                     <td>Sl No</td>
-                    <td>District</td>
+                    <td>Category</td>
                     <td>Action</td>
                 </tr>
-                {%for i in district%}
+                {% for i in category %}
                 <tr>
                     <td>{{forloop.counter}}</td>
-                    <td>{{i.district_name}}</td>
+                    <td>{{i.category_name}}</td>
                     <td></td>
                 </tr>
-            {%endfor%}
+                {% endfor %}
             </table>
+
         </form>
     </body>
 </html>
