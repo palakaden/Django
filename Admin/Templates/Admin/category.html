@@ -5,7 +5,7 @@
             <table border="3" align ="center">
                 <tr>
                     <td>Category</td>
-                    <td><input type="text" name="cat"></td>
+                    <td><input type="text" name="cat" value="{{edit.category_name}}"></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
@@ -24,7 +24,9 @@
                 <tr>
                     <td>{{forloop.counter}}</td>
                     <td>{{i.category_name}}</td>
-                    <td></td>
+                    <td><a href=  {% url 'webadmin:delcategory' i.id %}>Delete</a></td>
+                    <td><a href=  {% url 'webadmin:editcategory' i.id %}>Edit</a></td>
+                    
                 </tr>
                 {% endfor %}
             </table>
