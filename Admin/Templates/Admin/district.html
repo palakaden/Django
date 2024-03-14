@@ -1,8 +1,12 @@
 <html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
     <body>
         <form method="POST">
             {% csrf_token %}
-            <table border="3" align="center">
+            <table  align="center">
                 <tr>
                     <td>District</td>
                     <td><input type="text" name="dst" value="{{edit.district_name}}"></td>
@@ -14,7 +18,7 @@
                     </td>
                 </tr>
                 </table>
-                <table align="center" border="3">
+                <table align="center">
                 <tr>
                     <td>Sl No</td>
                     <td>District</td>
