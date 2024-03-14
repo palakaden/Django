@@ -4,35 +4,40 @@
         <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
     <body>
-        <form method="POST">
-            {% csrf_token %}
-            <table  align="center">
-                <tr>
-                    <td>District</td>
-                    <td><input type="text" name="dst" value="{{edit.district_name}}"></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" value="save" name="txtsave">
-                        <input type="reset" value="cancel" name="txtcancel">
-                    </td>
-                </tr>
+        <div class="container">
+
+            <form method="POST">
+                {% csrf_token %}
+                <table class="content">
+                    <tr>
+                        <td><label for="dst">District</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="dst" value="{{edit.district_name}}" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="save" name="txtsave">
+                            <input type="reset" value="cancel" name="txtcancel">
+                        </td>
+                    </tr>
+                    </table>
+                    <table class="data">
+                    <tr>
+                        <td>Sl No</td>
+                        <td>District</td>
+                        <td>Action</td>
+                    </tr>
+                    {%for i in district%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.district_name}}</td>
+                        <td><a href=  {% url 'webadmin:deldistrict' i.id %}>Delete</a></td>
+                        <td><a href=  {% url 'webadmin:editdistrict' i.id %}>Edit</a></td>
+                    </tr>
+                {%endfor%}
                 </table>
-                <table align="center">
-                <tr>
-                    <td>Sl No</td>
-                    <td>District</td>
-                    <td>Action</td>
-                </tr>
-                {%for i in district%}
-                <tr>
-                    <td>{{forloop.counter}}</td>
-                    <td>{{i.district_name}}</td>
-                    <td><a href=  {% url 'webadmin:deldistrict' i.id %}>Delete</a></td>
-                    <td><a href=  {% url 'webadmin:editdistrict' i.id %}>Edit</a></td>
-                </tr>
-            {%endfor%}
-            </table>
-        </form>
+            </form>
+        </div>
     </body>
 </html>
